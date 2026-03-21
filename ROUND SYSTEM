@@ -1,0 +1,7 @@
+while true do
+	wait(5)
+	for _,player in pairs(game.Players:GetPlayers()) do
+		player:LoadCharacter()
+	end
+	wait(20)
+end
