@@ -1,0 +1,5 @@
+local states = {}
+
+game.ReplicatedStorage.SetState.OnServerEvent:Connect(function(player, state)
+	states[player] = state
+end)
