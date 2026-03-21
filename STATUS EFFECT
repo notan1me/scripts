@@ -1,0 +1,8 @@
+game.ReplicatedStorage.Burn.OnServerEvent:Connect(function(player, target)
+	for i = 1,5 do
+		wait(1)
+		if target and target:FindFirstChild("Humanoid") then
+			target.Humanoid:TakeDamage(2)
+		end
+	end
+end)
