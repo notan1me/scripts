@@ -1,0 +1,15 @@
+local Players = game:GetService("Players")
+
+local inventories = {}
+
+Players.PlayerAdded:Connect(function(player)
+	inventories[player] = {}
+end)
+
+Players.PlayerRemoving:Connect(function(player)
+	inventories[player] = nil
+end)
+
+game.ReplicatedStorage.AddItem.OnServerEvent:Connect(function(player, item)
+	table.insert(inventories[player], item)
+end)
