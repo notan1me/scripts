@@ -1,0 +1,8 @@
+local npc = script.Parent
+
+npc.Touched:Connect(function(hit)
+	local hum = hit.Parent:FindFirstChild("Humanoid")
+	if hum then
+		hum:TakeDamage(5)
+	end
+end)
