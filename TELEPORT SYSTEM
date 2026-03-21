@@ -1,0 +1,10 @@
+local part = script.Parent
+local target = workspace.Target
+
+part.Touched:Connect(function(hit)
+	local char = hit.Parent
+	local root = char:FindFirstChild("HumanoidRootPart")
+	if root then
+		root.CFrame = target.CFrame
+	end
+end)
