@@ -1,0 +1,18 @@
+local Players = game:GetService("Players")
+
+local quests = {}
+
+Players.PlayerAdded:Connect(function(player)
+	quests[player] = {Goal = 10, Progress = 0}
+end)
+
+game.ReplicatedStorage.AddProgress.OnServerEvent:Connect(function(player)
+	local quest = quests[player]
+	if quest then
+		quest.Progress += 1
+		if quest.Progress >= quest.Goal then
+			player.leaderstats.Coins.Value += 50
+			quest.Progress = 0
+		end
+	end
+end)
