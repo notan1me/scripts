@@ -1,0 +1,13 @@
+local part = script.Parent
+
+part.Touched:Connect(function(hit)
+	local player = game.Players:GetPlayerFromCharacter(hit.Parent)
+	if player then
+		local wood = player:FindFirstChild("Wood")
+		local coins = player:FindFirstChild("leaderstats"):FindFirstChild("Coins")
+		if wood and coins then
+			coins.Value += wood.Value * 5
+			wood.Value = 0
+		end
+	end
+end)
