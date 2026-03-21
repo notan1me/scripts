@@ -1,0 +1,8 @@
+local spawn = workspace.SpawnPart
+
+for i = 1,5 do
+	local npc = game.ServerStorage.NPC:Clone()
+	npc.Parent = workspace
+	npc:SetPrimaryPartCFrame(spawn.CFrame)
+	wait(2)
+end
