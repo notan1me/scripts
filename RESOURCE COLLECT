@@ -1,0 +1,11 @@
+local click = script.Parent.ClickDetector
+
+click.MouseClick:Connect(function(player)
+	local resource = player:FindFirstChild("Wood")
+	if not resource then
+		resource = Instance.new("IntValue")
+		resource.Name = "Wood"
+		resource.Parent = player
+	end
+	resource.Value += 1
+end)
