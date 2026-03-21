@@ -1,0 +1,12 @@
+local npc = script.Parent
+
+while true do
+	wait(1)
+	local players = game.Players:GetPlayers()
+	if #players > 0 then
+		local char = players[1].Character
+		if char and char:FindFirstChild("HumanoidRootPart") then
+			npc.Humanoid:MoveTo(char.HumanoidRootPart.Position)
+		end
+	end
+end
