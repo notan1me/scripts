@@ -1,0 +1,3 @@
+game.ReplicatedStorage.Remote.OnServerEvent:Connect(function(player, msg)
+	print(player.Name, msg)
+end)
