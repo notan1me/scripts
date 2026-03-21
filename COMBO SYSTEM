@@ -1,0 +1,17 @@
+local combo = {}
+
+game.ReplicatedStorage.Attack.OnServerEvent:Connect(function(player)
+	if not combo[player] then
+		combo[player] = 0
+	end
+
+	combo[player] += 1
+
+	if combo[player] > 3 then
+		combo[player] = 1
+	end
+
+	wait(1)
+
+	combo[player] = 0
+end)
