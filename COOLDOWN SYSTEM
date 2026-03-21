@@ -1,0 +1,11 @@
+local cooldowns = {}
+
+game.ReplicatedStorage.Use.OnServerEvent:Connect(function(player)
+	if not cooldowns[player] then
+		cooldowns[player] = 0
+	end
+
+	if tick() - cooldowns[player] >= 2 then
+		cooldowns[player] = tick()
+	end
+end)
