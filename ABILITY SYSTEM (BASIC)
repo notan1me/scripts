@@ -1,0 +1,6 @@
+game.ReplicatedStorage.Ability.OnServerEvent:Connect(function(player)
+	local char = player.Character
+	if char then
+		char.HumanoidRootPart.Velocity = char.HumanoidRootPart.CFrame.LookVector * 50
+	end
+end)
