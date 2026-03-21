@@ -1,0 +1,7 @@
+local module = {}
+
+function module.Print()
+	print("Loaded")
+end
+
+return module
