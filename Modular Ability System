@@ -1,0 +1,16 @@
+local Abilities = {}
+
+Abilities["Fireball"] = function(player)
+	local char = player.Character
+	local root = char:FindFirstChild("HumanoidRootPart")
+	
+	local part = Instance.new("Part")
+	part.Size = Vector3.new(2,2,2)
+	part.Position = root.Position
+	part.Velocity = root.CFrame.LookVector * 100
+	part.Parent = workspace
+	
+	game:GetService("Debris"):AddItem(part, 5)
+end
+
+return Abilities
