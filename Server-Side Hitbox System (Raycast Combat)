@@ -1,0 +1,16 @@
+local function Hitbox(origin, direction, range, ignore)
+	local params = RaycastParams.new()
+	params.FilterDescendantsInstances = ignore
+	params.FilterType = Enum.RaycastFilterType.Blacklist
+	
+	local result = workspace:Raycast(origin, direction * range, params)
+	
+	if result then
+		local model = result.Instance:FindFirstAncestorOfClass("Model")
+		if model and model:FindFirstChild("Humanoid") then
+			model.Humanoid:TakeDamage(20)
+		end
+	end
+end
+
+return Hitbox
