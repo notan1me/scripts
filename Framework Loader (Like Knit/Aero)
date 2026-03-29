@@ -1,0 +1,15 @@
+local Services = {}
+
+for _, module in pairs(script.Parent:GetChildren()) do
+	if module:IsA("ModuleScript") then
+		Services[module.Name] = require(module)
+	end
+end
+
+for _, service in pairs(Services) do
+	if service.Init then
+		service:Init()
+	end
+end
+
+return Services
