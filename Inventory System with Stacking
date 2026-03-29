@@ -1,0 +1,19 @@
+local Inventory = {}
+
+function Inventory:AddItem(player, item, amount)
+	local inv = player:FindFirstChild("Inventory")
+	if not inv then return end
+	
+	local existing = inv:FindFirstChild(item)
+	
+	if existing then
+		existing.Value += amount
+	else
+		local val = Instance.new("IntValue")
+		val.Name = item
+		val.Value = amount
+		val.Parent = inv
+	end
+end
+
+return Inventory
