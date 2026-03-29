@@ -1,0 +1,11 @@
+local RunService = game:GetService("RunService")
+local player = game.Players.LocalPlayer
+
+RunService.RenderStepped:Connect(function()
+	if player.Character then
+		local root = player.Character:FindFirstChild("HumanoidRootPart")
+		if root then
+			root.CFrame = root.CFrame * CFrame.new(0,0,-0.1)
+		end
+	end
+end)
