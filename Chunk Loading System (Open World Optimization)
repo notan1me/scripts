@@ -1,0 +1,15 @@
+local RenderDistance = 200
+
+game:GetService("RunService").Heartbeat:Connect(function()
+	for _, part in pairs(workspace:GetChildren()) do
+		if part:IsA("BasePart") then
+			local dist = (part.Position - workspace.CurrentCamera.CFrame.Position).Magnitude
+			
+			if dist > RenderDistance then
+				part.Transparency = 1
+			else
+				part.Transparency = 0
+			end
+		end
+	end
+end)
