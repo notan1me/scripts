@@ -1,0 +1,15 @@
+local Cooldowns = {}
+
+function Cooldowns:Create(player, ability, time)
+	Cooldowns[player] = Cooldowns[player] or {}
+	Cooldowns[player][ability] = tick() + time
+end
+
+function Cooldowns:Ready(player, ability)
+	if not Cooldowns[player] then return true end
+	if not Cooldowns[player][ability] then return true end
+	
+	return tick() >= Cooldowns[player][ability]
+end
+
+return Cooldowns
